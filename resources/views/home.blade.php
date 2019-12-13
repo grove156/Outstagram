@@ -7,7 +7,7 @@
             <img src="https://instagram.fmel5-1.fna.fbcdn.net/v/t51.2885-19/s150x150/51279173_701532740243702_8505887665474764800_n.jpg?_nc_ht=instagram.fmel5-1.fna.fbcdn.net&oh=3a91bcb5983b37acc06e193fb91e9df0&oe=5E741D42" class="rounded-circle">
           </div>
         <div class="col-9">
-            <div><h1>Probsno</h1></div>
+            <div><h1>{{$user->username}}</h1></div>
             <div class="d-flex">
                   <div class="pr-5"><strong>63</strong> post</div>
                   <div class="pr-5"><strong>730k</strong> followers</div>
