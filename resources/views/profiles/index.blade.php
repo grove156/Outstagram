@@ -9,7 +9,7 @@
         <div class="col-9">
             <div class="d-flex justify-content-between align-items-baseline">
               <h1>{{$user->username}}</h1>
-              <a href='/p/create/{{$user->id}}'>Add new posts</a>
+              <a class="btn btn-primary" href='/p/create/{{$user->id}}'>Add new posts</a>
             </div>
             <div class="d-flex">
                   <div class="pr-5"><strong>{{$user->posts->count()}}</strong> post</div>
@@ -18,7 +18,9 @@
             </div>
             <div class="pt-4 font-weight-bold">{{$user->profile->title}}</div>
             <div>{{$user->profile->description}}</div>
-            <div><a href="#">{{$user->profile->url ?? 'N/A'}}</div>
+            <div class="pb-3"><a href="#">{{$user->profile->url ?? 'N/A'}}</div>
+
+            <a href="/profile/{{$user->id}}/edit" style="border-color: gray;" class="btn btn-light form-control"><strong>Edit profile</strong></a>
         </div>
     </div>
     <div class="row pt-4">

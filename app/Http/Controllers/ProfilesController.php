@@ -12,4 +12,21 @@ class ProfilesController extends Controller
         $user = User::findOrFail($user);
         return view('profiles.index',['user'=>$user,]);
     }
+
+    public function edit(\App\User $user)
+    {
+        return view('profiles.edit',compact('user'));
+    }
+
+    public function update(User $user)
+    {
+      $data = request()->validate([
+          'title'=>'required',
+          'description'=>'required',
+          'url'=>'url',
+          'image'=>'',
+      ]);
+      $user->profile->update($data);
+      return redirect("/profile/{$user->id}");
+    }
 }

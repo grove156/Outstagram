@@ -37,4 +37,9 @@ class PostsController extends Controller
 
       return redirect('/profile/' . auth()->user()->id);
     }
+
+    Public function show(\App\Post $post)
+    {
+      return view('posts.show',['post'=>$post]);
+    }
 }
