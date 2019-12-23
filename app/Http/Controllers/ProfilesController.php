@@ -10,7 +10,9 @@ class ProfilesController extends Controller
     public function index($user)
     {
         $user = User::findOrFail($user);
-        return view('profiles.index',['user'=>$user,]);
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+
+        return view('profiles.index',['user'=>$user, 'follows'=>$follows]);
     }
 
     public function edit(\App\User $user)
@@ -31,10 +33,11 @@ class ProfilesController extends Controller
 
       if(request('image')){
           $imagePath = request('image')->store('profile','public');
+          $imageArray = ['image'=>$imagePath];
       }
       auth()->user()->profile->update(array_merge(
         $data,
-        ['image'=>$imagePath]
+        $imageArray ?? []
       ));
       return redirect("/profile/{$user->id}");
     }
