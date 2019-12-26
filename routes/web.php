@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'PostsController@index');
 Route::post('follow/{user}', 'FollowsController@store');
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
